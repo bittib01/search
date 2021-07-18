@@ -157,7 +157,7 @@
 
 <body>
     <ul>
-        <li style="font-size: 24px; height: 80px; line-height: 80px; letter-spacing: 5px;"><img src="logo.png" height="24" style="display: inline-block; margin-top: -6px; border-radius: 50%;"> IP地址查询</li>
+        <li style="font-size: 24px; height: 80px; line-height: 80px; letter-spacing: 5px;"><img src="logo.png" height="24" style="display: inline-block; margin-top: -6px; border-radius: 50%;"> IP地址查询-需要关闭广告拦截与反跟踪</li>
         <li>
             <span height="30" width="20%">检测点</span>
             <span width="40%">检测结果</span>
@@ -216,7 +216,7 @@
             dataType: "jsonp",
             timeout: 5000,
             success: function(re) {
-                $("#ipsb").html(re.ip + "&nbsp;|&nbsp;" + re.country + "&nbsp;&nbsp;<img class='flag' src='https://cdn.jsdelivr.net/gh/5iux/dyimg/flag/" + re.country_code+".svg'>");
+                $("#ipsb").html(re.ip + "&nbsp;|&nbsp;" + re.country + "&nbsp;|&nbsp;" + re.city + "&nbsp;&nbsp;<img class='flag' src='https://cdn.jsdelivr.net/gh/5iux/dyimg/flag/" + re.country_code+".svg'>");
             },
             error: function() {
                 $("#ipsb").html("<font color='red'>链接失败</font>");
@@ -247,12 +247,12 @@
             };
             img.onerror = function() {
                 flag = true;
-                $("#appspot").html("<font color='green'>链接成功！</font>");
+                $("#appspot").html("<font color='white'>链接失败</font>");
             };
             var timer = setTimeout(function() {
                 if (!flag) { //如果真的无法访问
                     flag = false;
-                    $("#appspot").html("<font color='red'>链接失败</font>");
+                    $("#appspot").html("<font color='white'>链接失败</font>");
                 }
             }, 1500);
         }
